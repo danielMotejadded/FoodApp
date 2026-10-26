@@ -1,9 +1,15 @@
+import { useState } from "react";
+import FoodContainer from "./components/FoodContainer";
+import Header from "./components/Header";
+import Modal from "./components/Modal";
+
 function App() {
+  const [isCartVisible, setIsCartVisible] = useState(false);
   return (
     <>
-      <h1>You got this 💪</h1>
-      <p>Stuck? Not sure how to proceed?</p>
-      <p>Don't worry - we've all been there. Let's build it together!</p>
+      <Header openCart={setIsCartVisible} />
+      <Modal visible={isCartVisible} setIsCartVisible={setIsCartVisible} />
+      <FoodContainer />
     </>
   );
 }
